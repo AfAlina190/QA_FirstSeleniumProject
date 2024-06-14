@@ -115,5 +115,60 @@ public class HomeWorkTest {
     }
 
     //===================== 3 HW ===============================
+    @Test
+    public void findElementByXPath() {
+        //tag name -> tag
+        // CSS: div
+        driver.findElement(By.xpath("//div"));
+
+        // CSS: link
+        driver.findElement(By.xpath("//link"));
+
+        // CSS: a
+        driver.findElement(By.xpath("//a"));
+
+
+        //id -> #id
+        // CSS: #dialog-notifications-success
+        driver.findElement(By.xpath("//*[@id='dialog-notifications-success']"));
+
+        // CSS: #dialog-notifications-error
+        driver.findElement(By.xpath("//*[@id='dialog-notifications-error']"));
+
+        // CSS: #bar-notification
+        driver.findElement(By.xpath("//*[@id='bar-notification']"));
+
+        // CSS: #USE_CHAT_GPT_AI_CONTENT_CSS_LINK_TAG
+        driver.findElement(By.xpath("//*[@id='USE_CHAT_GPT_AI_CONTENT_CSS_LINK_TAG']"));
+
+        // CSS: #flyout-cart
+        driver.findElement(By.xpath("//*[@id='flyout-cart']"));
+
+
+        //class -> class
+        // CSS: .header
+        driver.findElement(By.xpath("//*[contains(@class, 'header')]"));
+
+        // CSS: .header-logo
+        driver.findElement(By.xpath("//*[contains(@class, 'header-logo')]"));
+
+        // CSS: .search-box
+        driver.findElement(By.xpath("//*[contains(@class, 'search-box')]"));
+
+        // CSS: .header-links-wrapper
+        driver.findElement(By.xpath("//*[contains(@class, 'header-links-wrapper')]"));
+
+        // CSS: .footer
+        driver.findElement(By.xpath("//*[contains(@class, 'footer')]"));
+
+        // CSS: .master-wrapper-content
+        driver.findElement(By.xpath("//*[contains(@class, 'master-wrapper-content')]"));
+
+
+        //[attr='value']
+        // CSS: [ng-reflect-name='city']
+        WebElement cssSelector = driver.findElement(By.xpath("//*[@ng-reflect-name='city']"));
+        System.out.println(cssSelector.getAttribute("type"));
+    }
 
 }

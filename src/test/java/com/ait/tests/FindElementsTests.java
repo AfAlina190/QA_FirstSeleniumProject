@@ -1,36 +1,12 @@
 package com.ait.tests;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 import java.util.List;
 
-public class FindElementsTests {
-
-    WebDriver driver;
-
-    //before-setUp
-    @BeforeMethod
-    public void setUp() {
-        driver = new ChromeDriver();
-
-        driver.get("https://ilcarro.web.app");
-        //maximize browser to window size
-        driver.manage().window().maximize();
-        //wait for all elements on the site to load before start testing
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        }
-    @AfterMethod(enabled = false) //- что бы окно не закрывалось
-    public void tearDown() {
-        driver.quit();//all tabs close browser
-    }
+public class FindElementsTests extends TestBase {
 
     @Test
     public void findElementsByTagName(){
@@ -137,10 +113,41 @@ public class FindElementsTests {
 
 
     }
+
+    @Test
+    public void findElementByXpath2(){
+        //parent
+
+        driver.findElement(By.xpath("//h1/parent::*"));//move up
+        driver.findElement(By.xpath("//h1/.."));
+        driver.findElement(By.xpath("//h1/parent::div"));
+
+        //ancestor
+        driver.findElement(By.xpath("//h1/ancestor::*"));//all
+        driver.findElement(By.xpath("//h1/ancestor::div"));//two options
+        driver.findElement(By.xpath("//h1/ancestor::div[2]"));// one option
+
+        //following-sibling
+        driver.findElement(By.xpath("//h1/following-sibling::*"));//all
+        driver.findElement(By.xpath("//h1/following-sibling::form"));//one option
+
+
+        //preceding-sibling
+        driver.findElement(By.xpath("//h2/preceding-sibling::*"));//one option
+
+    }
+
+
 }
 
+// !! css  двигаться вверх по дереву не может в отдличии от xpath
+//css = div>span --> xpath = //div/span - это непосредственно дочерний эжлемент
+//css = div span --> xpath = //div//span
 
-
+//parent
+//child
+//ancestor
+//descendant
 
 
 
