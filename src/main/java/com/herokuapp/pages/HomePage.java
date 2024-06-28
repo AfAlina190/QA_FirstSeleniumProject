@@ -29,5 +29,22 @@ public class HomePage extends BasePage1{
         click(nestedFrames);
         return new NestedFramesPage(driver);
     }
+
+    @FindBy(xpath = "//a[contains(text(),'Horizontal Slider')]")
+    WebElement sliderPage;
+
+    public SliderPage getSliderPage() {
+        click(sliderPage);
+        return new SliderPage(driver);
+
+    }
+
+    @FindBy(xpath = "//a[contains(text(),'Hovers')]" )
+    WebElement hoverPage;
+
+    public HoverPage getHoversPage() {
+        click(hoverPage);
+        return new HoverPage(driver);
+    }
 }
 
