@@ -10,26 +10,40 @@ import java.util.List;
 
 public class HoverPage extends BasePage1{
     public HoverPage(WebDriver driver) {
+
         super(driver);
     }
 
-    @FindBy(tagName = "h5")
-    WebElement infUser;
-    @FindBy(className = "figure")
-    List<WebElement> figures;
+    Actions actions = new Actions(driver);
 
-    public HoverPage selectInfoUser() {
-        Actions actions = new Actions(driver);
-        for (WebElement figure : figures) {
-            actions.moveToElement(figure).perform();
-            pause(1000);
-            verifyInfoUser();
-        }
+    @FindBy(xpath = "//div[@class='figure'][1]")
+    WebElement figure1;
+    @FindBy(xpath = "//div[@class='figure'][2]")
+    WebElement figure2;
+    @FindBy(xpath = "//div[@class='figure'][3]")
+    WebElement figure3;
+
+    WebElement[] figures = {figure1, figure2, figure3};
+
+
+    @FindBy(xpath = "//div[@class='figure'][1]//div")
+    WebElement info1;
+
+    @FindBy(xpath = "//div[@class='figure'][2]//div")
+    WebElement info2;
+
+    @FindBy(xpath = "//div[@class='figure'][3]//div")
+    WebElement info3;
+
+    WebElement[] infos = {info1, info2, info3};
+
+    public HoverPage hoverOverFigure(int i) {
+        actions.moveToElement(figures[i - 1]).pause(1000).perform();
         return this;
     }
 
-    public HoverPage verifyInfoUser() {
-        Assert.assertTrue(isElementVisible(infUser));
+    public HoverPage verifyInfo(int i) {
+        Assert.assertTrue(isElementVisible(infos[i - 1]));
         return this;
     }
 }

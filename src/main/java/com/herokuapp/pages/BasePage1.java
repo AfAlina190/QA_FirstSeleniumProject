@@ -1,5 +1,6 @@
 package com.herokuapp.pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -68,5 +69,16 @@ public abstract class  BasePage1 {
             ex.getMessage();
             return false;
         }
-}
+    }
+    public boolean isAlertPresent() {
+        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(20))
+                .until(ExpectedConditions.alertIsPresent());
+        if(alert == null){
+            return false;
+        }else{
+            driver.switchTo().alert();
+            alert.accept();
+            return true;
+        }
+    }
 }
