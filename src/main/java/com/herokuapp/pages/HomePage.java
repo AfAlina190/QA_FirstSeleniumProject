@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage1{
     public HomePage(WebDriver driver) {
+
         super(driver);
     }
     @FindBy(css = ":nth-child(29)>a")
@@ -69,6 +70,44 @@ public class HomePage extends BasePage1{
     public DragAndDropPage getDragAndDropPage() {
         click(dragAndDropLink);
         return new DragAndDropPage(driver);
+    }
+
+    @FindBy(css = ":nth-child(18)>a")
+    WebElement fileUploadLink;
+    public FileUploadPage getFileUploadPage() {
+        click(fileUploadLink);
+        return new FileUploadPage(driver);
+    }
+
+    @FindBy(css = "li:nth-child(4)>a")
+    WebElement brokenImagesLink;
+    public BrokenImagePage getBrokenImage() {
+        click(brokenImagesLink);
+        return new BrokenImagePage(driver);
+    }
+
+    @FindBy(css = ":nth-child(28)>a")
+    WebElement jQueryLink;
+
+    public JQueryUIMenusPage getJQueryUIMenusPage() {
+        click(jQueryLink);
+        return new JQueryUIMenusPage(driver);
+    }
+
+    @FindBy(css = "li:nth-child(2)>a")
+    WebElement addRemoveElements;
+
+    public AddRemoveElementsPage getAddRemoveElements() {
+        click(addRemoveElements);
+        return new AddRemoveElementsPage(driver);
+    }
+
+    @FindBy(css = ":nth-child(16)>a")
+    WebElement exitIntentLink;
+
+    public ExitIntentPage getExitIntentPage() {
+        click(exitIntentLink);
+        return new ExitIntentPage(driver);
     }
 }
 
