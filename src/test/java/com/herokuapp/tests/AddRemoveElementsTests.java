@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AddRemoveElementsTests {
+public class AddRemoveElementsTests extends TestBase1{
     HomePage home;
     AddRemoveElementsPage addRemove;
-    WebDriver driver;
+
 
     @BeforeMethod
     public void precondition() {

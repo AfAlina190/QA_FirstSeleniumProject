@@ -10,6 +10,7 @@ import java.util.List;
 
 public class MultipleWindowsPage extends BasePage1{
     public MultipleWindowsPage(WebDriver driver) {
+
         super(driver);
     }
     @FindBy(css = ".example>a")
@@ -18,7 +19,8 @@ public class MultipleWindowsPage extends BasePage1{
 
     public MultipleWindowsPage switchToNewWindow(int index) {
         click(openWindowLink);
-        List<String> tabs =new ArrayList<>(driver.getWindowHandles());
+
+        List<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(index));
         return this;
     }
@@ -26,7 +28,7 @@ public class MultipleWindowsPage extends BasePage1{
     @FindBy(xpath = "//h3[.='New window']")
     WebElement newWindowTitle;
     public MultipleWindowsPage verifyNewWindowTitle(String title) {
-        Assert.assertTrue(shouldHaveText(newWindowTitle,title,5));
+        Assert.assertTrue(shouldHaveText(newWindowTitle,title,10));
         return this;
     }
 }

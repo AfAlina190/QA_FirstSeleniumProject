@@ -10,7 +10,7 @@ public class JQueryMenusTests extends TestBase1{
 
     HomePage home;
     JQueryUIMenusPage jQuery;
-    String path = "C:/Users/Tanya/Downloads";
+    String path = "C:/Users/afali/Downloads";
 
     @BeforeMethod
     public void precondition(){

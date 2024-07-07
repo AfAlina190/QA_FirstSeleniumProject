@@ -6,8 +6,9 @@ public class User {
     private String email;
     private String password;
 
-    public void setFirstName(String firstName) {
+    public User setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
     }
 
     public User setLastName(String lastName) {
@@ -15,9 +16,9 @@ public class User {
         return this;
     }
 
-    public void setEmail(String email) {
+    public User setEmail(String email) {
         this.email = email;
-
+        return this;
     }
 
     public User setPassword(String password) {

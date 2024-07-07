@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 
 public class FileUploadPage extends BasePage1{
     public FileUploadPage(WebDriver driver) {
+
         super(driver);
     }
 
@@ -37,8 +38,8 @@ public class FileUploadPage extends BasePage1{
         System.out.println("Dimension x and y: " + dimension.getWidth() + " *** " + dimension.getHeight());
 
 
-        int x = dimension.getWidth()/ 2 + 550;
-        int y = dimension.getHeight()/ 4 + 20;
+        int x = dimension.getWidth()/ 2 + 400;
+        int y = dimension.getHeight()/ 4 + 10;
 
         robot.mouseMove(x, y);
         pause(1000);

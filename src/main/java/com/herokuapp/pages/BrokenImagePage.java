@@ -24,7 +24,7 @@ public class BrokenImagePage extends BasePage1{
             WebElement image = images.get(i);
             String imageUrl = image.getAttribute("src");
 
-//            verifyLinks(imageUrl);
+           verifyLinks(imageUrl);
         }
         return this;
     }

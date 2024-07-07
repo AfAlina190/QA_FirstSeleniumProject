@@ -13,6 +13,7 @@ import java.io.File;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Duration;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public abstract class  BasePage1 {
@@ -74,6 +75,10 @@ public abstract class  BasePage1 {
             ex.getMessage();
             return false;
         }
+    }
+
+    public boolean isElementPresent(List<WebElement> element) {
+        return element.size() > 0;
     }
     public boolean isAlertPresent() {
         Alert alert = new WebDriverWait(driver, Duration.ofSeconds(20))

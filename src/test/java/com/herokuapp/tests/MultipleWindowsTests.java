@@ -9,12 +9,14 @@ public class MultipleWindowsTests extends TestBase1{
 
     @BeforeMethod
     public void precondition(){
-        new HomePage(driver).getMultipleWindowsPage();
+        new HomePage(driver)
+                .getMultipleWindowsPage();
     }
 
     @Test
     public void handleNewTabTest(){
-        new MultipleWindowsPage(driver).switchToNewWindow(1)
+        new MultipleWindowsPage(driver)
+                .switchToNewWindow(1)
                 .verifyNewWindowTitle("New Window");
 
     }
